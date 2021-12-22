@@ -16,8 +16,12 @@ DEBUG = str(os.environ.get('DEBUG')) == '1'
 
 ALLOWED_HOSTS = ['www.builtwithhtmx.com', 'builtwithhtmx.com', 'localhost', '127.0.0.1']
 
-# Application definition
+INTERNAL_IPS = [
+    '127.0.0.1',
+    'localhost',
+]
 
+# Application definition
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -26,8 +30,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    # own pages
+    # own apps
     'pages',
+
+    # third-party apps
+
+    # dev stuff
+    'django_browser_reload',
+    'debug_toolbar',
 ]
 
 MIDDLEWARE = [
@@ -38,6 +48,10 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    # dev stuff
+    'django_browser_reload.middleware.BrowserReloadMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
