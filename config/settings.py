@@ -32,6 +32,8 @@ INSTALLED_APPS = [
 
     # own apps
     'pages',
+    'youtube',
+    'projects',
 
     # third-party apps
 
