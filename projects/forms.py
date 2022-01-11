@@ -8,13 +8,8 @@ from .models import Comment, Project
 class AddProject(ModelForm):
     def __init__(self, *args, **kwargs):
         super(AddProject, self).__init__(*args, **kwargs)
-
-        for fieldname in [
-            "title",
-            "user_email",
-            "short_description",
-            "url",
-        ]:
+        fieldnames = ["title", "user_email", "short_description", "url", ]
+        for fieldname in fieldnames:
             self.fields[fieldname].help_text = None
             self.fields[fieldname].widget.attrs.update(
                 {
@@ -22,10 +17,7 @@ class AddProject(ModelForm):
                               hover:border-grey px-2 py-2 rounded shadow"
                 }
             )
-
-        self.fields["url"].widget.attrs.update(
-            {"placeholder": "https://test.com"}
-        )
+        self.fields["url"].widget.attrs.update({"placeholder": "https://test.com"})
 
     def save(self):
         instance = super(AddProject, self).save()

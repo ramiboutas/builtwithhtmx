@@ -1,0 +1,225 @@
+{% load static %}
+<html class="" lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <!-- Other meta stuff -->
+        <link rel="apple-touch-icon" href="{% static 'favicon/logo.png' %}" />
+        <link rel="apple-touch-icon" href="{% static 'favicon/logo.png' %}" />
+        <link rel="icon" type="image/png" sizes="16x16 32x32 500x500" href="{% static 'favicon/logo.png' %}"/>
+        <meta property="og:type" content="website" />
+        <meta name="twitter:card" content="summary_large_image" />
+        {% block meta %}
+            <title>Built with Django</title>
+            <meta name="description" content="Collection of cool projects people built with Django"/>
+            <link rel="canonical" href="https://{{ request.get_host }}/" />
+            <meta property="og:title" content="Built with Django" />
+            <meta property="og:url" content="https://{{ request.get_host }}/" />
+            <meta property="og:description" content="Collection of cool projects people built with Django"/>
+            <meta name="og:image" content="{% static 'images/logo.png' %}" />
+            <meta name="twitter:creator" content="@rasulkireev" />
+            <meta name="twitter:site" content="@rasulkireev" />
+            <meta name="twitter:title" content="Built with Django" />
+            <meta name="twitter:description" content="Collection of cool projects people built with Django"/>
+            <meta name="twitter:image" content="{% static 'images/logo.png' %}" />
+        {% endblock %}
+        <!-- CSS -->
+        <!-- CSS refresh solution from https://stackoverflow.com/a/56987021/6020165 -->
+        <link rel="stylesheet" href="{% static 'bundles/main.css' %}?{% now 'U' %}"/>
+        <link rel="stylesheet"
+              href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css"/>
+        <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
+        <script async defer data-domain="builtwithdjango.com" src="https://plausible.io/js/plausible.js"></script>
+    </head>
+    <body class="font-sans bg-gray-100">
+        <nav x-data="{ isOn: false }" class="bg-gray-800">
+            <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+                <div class="relative flex items-center justify-between h-16">
+                    <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
+                        <!-- Mobile menu button-->
+                        <button type="button"
+                                @click="isOn = !isOn"
+                                class="inline-flex items-center justify-center p-2 text-gray-400 rounded-md hover:text-white hover:bg-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
+                                aria-controls="mobile-menu"
+                                aria-expanded="false">
+                            <span class="sr-only">Open main menu</span>
+                            <svg :class="{'hidden': isOn, 'block': !isOn }"
+                                 class="w-6 h-6"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor"
+                                 aria-hidden="true">
+                                <path stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M4 6h16M4 12h16M4 18h16"/>
+                            </svg>
+                            <svg :class="{'block': isOn, 'hidden': !isOn }"
+                                 class="w-6 h-6"
+                                 xmlns="http://www.w3.org/2000/svg"
+                                 fill="none"
+                                 viewBox="0 0 24 24"
+                                 stroke="currentColor"
+                                 aria-hidden="true">
+                                <path stroke-linecap="round"
+                                      stroke-linejoin="round"
+                                      stroke-width="2"
+                                      d="M6 18L18 6M6 6l12 12"/>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-center justify-center flex-1 sm:items-stretch sm:justify-start">
+                        <div class="flex items-center flex-shrink-0">
+                            <a href="{% url 'home' %}"><img class="block w-auto h-10 lg:hidden"
+     src="{% static 'images/logo.png' %}"
+     alt="Built with Django Logo"></a>
+                            <a href="{% url 'home' %}"><img class="hidden w-auto h-10 lg:block"
+     src="{% static 'images/logo.png' %}"
+     alt="Built with Django Logo"></a>
+                        </div>
+                        <div class="hidden sm:block sm:ml-6">
+                            <div class="flex space-x-4">
+                                <a href="{% url 'projects' %}"
+                                   class="px-3 py-2 text-lg font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white"
+                                   key="Projects">Projects</a>
+                                <a href="{% url 'makers' %}"
+                                   class="px-3 py-2 text-lg font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white"
+                                   key="Makers">Makers</a>
+                                <a href="{% url 'jobs' %}"
+                                   class="px-3 py-2 text-lg font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white"
+                                   key="Jobs">Jobs</a>
+                                <a href="{% url 'blog' %}"
+                                   class="px-3 py-2 text-lg font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white"
+                                   key="Blog">Blog</a>
+                                <a href="{% url 'podcast_episodes' %}"
+                                   class="px-3 py-2 text-lg font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white"
+                                   key="Podcast">Podcast</a>
+                                <a href="{% url 'support' %}"
+                                   class="px-3 py-2 text-lg font-medium text-blue-800 bg-yellow-400 rounded-full"
+                                   target="_blank"
+                                   key="Support">Support</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+                        {% if user.is_authenticated %}
+                            <!-- Profile dropdown -->
+                            <div x-data="{ isOpen: false }" class="relative ml-3">
+                                <div>
+                                    <button type="button"
+                                            @click="isOpen = !isOpen"
+                                            class="flex text-sm bg-gray-800 rounded-full focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
+                                            id="user-menu-button"
+                                            aria-expanded="false"
+                                            aria-haspopup="true">
+                                        <span class="sr-only">Open user menu</span>
+                                        {% if user.profile_image %}
+                                            <img class="w-8 h-8 rounded-full"
+                                                 src="{% get_media_prefix %}{{ user.profile_image }}"
+                                                 alt="">
+                                        {% else %}
+                                            <img class="w-8 h-8 rounded-full"
+                                                 src="https://avatars.dicebear.com/api/gridy/{{ user.username }}.svg"
+                                                 alt="">
+                                        {% endif %}
+                                    </button>
+                                </div>
+                                <div x-show="isOpen"
+                                     x-transition:enter="transition ease-out duration-100"
+                                     x-transition:enter-start="transform opacity-0 scale-95"
+                                     x-transition:enter-end="transform opacity-100 scale-100"
+                                     x-transition:leave="transition ease-in duration-75"
+                                     x-transition:leave-start="transform opacity-100 scale-100"
+                                     x-transition:leave-end="transform opacity-0 scale-95"
+                                     class="absolute right-0 w-48 py-1 mt-2 origin-top-right bg-white rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                                     role="menu"
+                                     aria-orientation="vertical"
+                                     aria-labelledby="user-menu-button"
+                                     tabindex="-1">
+                                    <!-- Active: "bg-gray-100", Not Active: "" -->
+                                    <a href="#"
+                                       class="block px-4 py-2 text-sm text-gray-700"
+                                       role="menuitem"
+                                       tabindex="-1"
+                                       id="user-menu-item-0">{{ user.username }}</a>
+                                    <!-- <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Settings</a> -->
+                                    <a href="{% url 'account_logout' %}"
+                                       class="block px-4 py-2 text-sm text-gray-700"
+                                       role="menuitem"
+                                       tabindex="-1"
+                                       id="user-menu-item-2">Sign out</a>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="flex-shrink-0">
+                                <a href="{% url 'account_login' %}"
+                                   class="relative inline-flex items-center px-4 py-2 text-sm font-medium text-white bg-green-500 border border-transparent border-solid rounded-md shadow-sm hover:bg-green-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-green-500">
+                                    <span>Login</span>
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div :class="{'block': isOn, 'hidden': !isOn }" class="sm:hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1">
+                    <a href="{% url 'projects' %}"
+                       class="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white"
+                       key="Projects">Projects</a>
+                    <a href="{% url 'makers' %}"
+                       class="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white"
+                       key="Makers">Makers</a>
+                    <a href="{% url 'jobs' %}"
+                       class="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white"
+                       key="Jobs">Jobs</a>
+                    <a href="{% url 'blog' %}"
+                       class="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white"
+                       key="Blog">Blog</a>
+                    <a href="{% url 'podcast_episodes' %}"
+                       class="block px-3 py-2 text-base font-medium text-gray-300 rounded-md hover:bg-gray-700 hover:text-white"
+                       key="Podcast">Podcast</a>
+                    <div class="block p-2">
+                        <a href="{% url 'support' %}"
+                           target="_blank"
+                           class="px-3 py-2 text-base font-medium text-blue-800 bg-yellow-400 rounded-full"
+                           key="Support">Support</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <div class="px-2 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            {% block content %}{% endblock content %}
+        </div>
+        <footer>
+            <a class="fixed bottom-0 left-0 z-10 px-2 py-1 font-semibold text-gray-900 no-underline bg-gray-200 border-t border-l border-white border-solid rounded-tr "
+               href="https://rasulkireev.com"
+               target="_blank">
+                <!-- <img class="inline w-4 align-middle rounded" src="https://github.com/account" alt="Rasul Kireev"/> -->
+                <p class="inline m-0 ml-1 text-sm font-normal align-middle">by Rasul</p>
+            </a>
+        </footer>
+        {% block schema %}
+            <script type="application/ld+json">
+            {
+              "@context": "https://schema.org",
+              "@type": "WebSite",
+              "name": "Projects Built with Django",
+              "description": "Collection of cool projects people built with Django",
+              "thumbnailUrl": "https://{{ request.get_host }}{% static 'images/logo.png' %}",
+              "url": "https://{{ request.get_host }}/",
+              "author": {
+                "@type": "Person",
+                "givenName": "Rasul",
+                "familyName": "Kireev",
+                "url": "https://rasulkireev.com/"
+              }
+            }
+            </script>
+        {% endblock schema %}
+        <script src="{% static 'bundles/app.js' %}?{% now 'U' %}"></script>
+        {% block additional-js %}{% endblock %}
+    </body>
+</html>

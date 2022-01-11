@@ -3,9 +3,6 @@ from django.conf import settings
 from django.db import models
 from django.urls import reverse
 
-# from taggit.managers import TaggableManager
-
-
 class Project(models.Model):
     """Model for a Project."""
 
