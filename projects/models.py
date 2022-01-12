@@ -27,13 +27,13 @@ class Project(models.Model):
     twitter_url = models.URLField(blank=True)
     github_url = models.URLField(blank=True)
 
-    # maker = models.ForeignKey(
-    #     "makers.Maker",
-    #     related_name="projects",
-    #     on_delete=models.CASCADE,
-    #     null=True,
-    #     blank=True,
-    # )
+    maker = models.ForeignKey(
+        "makers.Maker",
+        related_name="projects",
+        on_delete=models.CASCADE,
+        null=True,
+        blank=True,
+    )
     technologies = models.ManyToManyField(
         "Technology", related_name="projects", blank=True
     )

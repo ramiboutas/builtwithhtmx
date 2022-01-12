@@ -29,17 +29,35 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "django.contrib.sitemaps",
+    "django.contrib.sites",
 
     # own apps
-    'pages',
-    'youtube',
-    'projects',
+
+    "pages.apps.PagesConfig",
+    "projects.apps.ProjectsConfig",
+    "jobs.apps.JobsConfig",
+    "podcast.apps.PodcastConfig",
+    "makers.apps.MakersConfig",
+    "blog.apps.BlogConfig",
+    "newsletter.apps.NewsletterConfig",
+    "users.apps.UsersConfig",
+    "youtube.apps.YoutubeConfig",
 
     # third-party apps
-
-    # dev stuff
+    "allauth",
+    "allauth.account",
+    "allauth.socialaccount",
+    "allauth.socialaccount.providers.github",
+    "allauth.socialaccount.providers.twitter",
     'django_browser_reload',
     'debug_toolbar',
+    "taggit",
+    "django_extensions",
+    "django_component",
+    "django_filters",
+    "rest_framework",
+    "anymail",
 ]
 
 MIDDLEWARE = [
@@ -161,6 +179,30 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+
+
+# auth user
+
+AUTH_USER_MODEL = "users.CustomUser"
+
+# django-allauth
+# From django for professional book
+AUTHENTICATION_BACKENDS = (
+    "django.contrib.auth.backends.ModelBackend",
+    "allauth.account.auth_backends.AuthenticationBackend",
+)
+
+ACCOUNT_FORMS = {
+    "login": "users.forms.CustomLoginForm",
+    "signup": "users.forms.CustomUserCreationForm",
+}
+
+ACCOUNT_SESSION_REMEMBER = True
+ACCOUNT_USERNAME_REQUIRED = True
+ACCOUNT_AUTHENTICATION_METHOD = "username"
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_UNIQUE_EMAIL = True
+ACCOUNT_LOGOUT_ON_GET = True
 
 if not DEBUG:
     SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')

@@ -1,4 +1,4 @@
-{% extends 'base.html' %}
+{% extends '_base.html' %}
 <form class="absolute top-0 right-0 p-2" method="post">
     {% csrf_token %}
     <input class="hidden" type="text" value="{{ user.email }}">
