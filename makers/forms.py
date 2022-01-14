@@ -47,11 +47,6 @@ class MakerUpdateViewForm(ModelForm):
             }
         )
 
-        # self.fields['maker_profile_image'].help_text = None
-        # self.fields['maker_profile_image'].widget.attrs.update(
-        #     {"class": "text-transparent"}
-        # )
-
     class Meta:
         model = Maker
         fields = ["maker_profile_image", "short_bio"]
