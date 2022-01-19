@@ -13,8 +13,7 @@ class AddProject(ModelForm):
             self.fields[fieldname].help_text = None
             self.fields[fieldname].widget.attrs.update(
                 {
-                    "class": "block appearance-none w-full bg-white border border-solid border-grey-light \
-                              hover:border-grey px-2 py-2 rounded shadow"
+                    "class": "form-control"
                 }
             )
         self.fields["url"].widget.attrs.update({"placeholder": "https://test.com"})
