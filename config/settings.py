@@ -37,10 +37,8 @@ INSTALLED_APPS = [
     "pages.apps.PagesConfig",
     "projects.apps.ProjectsConfig",
     "jobs.apps.JobsConfig",
-    "podcast.apps.PodcastConfig",
     "makers.apps.MakersConfig",
     "blog.apps.BlogConfig",
-    "newsletter.apps.NewsletterConfig",
     "users.apps.UsersConfig",
     "youtube.apps.YoutubeConfig",
 

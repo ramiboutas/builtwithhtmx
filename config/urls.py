@@ -15,12 +15,9 @@ urlpatterns = (
         path("sitemap.xml", sitemap, {"sitemaps": sitemaps}, name="django.contrib.sitemaps.views.sitemap",),
         path("projects/", include("projects.urls")),
         path('htmx-on-youtube', include('youtube.urls')),
-        # path("api/v1/", include("api.urls")),
         path("jobs/", include("jobs.urls")),
         path("makers/", include("makers.urls")),
         path("blog/", include("blog.urls")),
-        path("newsletter/", include("newsletter.urls")),
-        path("podcast/", include("podcast.urls")),
         path("users/", include("allauth.urls")),
 
         # dev stuff

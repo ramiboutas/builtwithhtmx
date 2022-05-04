@@ -5,7 +5,7 @@ from django.contrib.sitemaps import GenericSitemap
 from django.urls import reverse
 
 from jobs.models import Job
-from podcast.models import Episode
+# from podcast.models import Episode
 from projects.models import Project
 
 
@@ -26,7 +26,6 @@ class StaticViewSitemap(sitemaps.Sitemap):
             "support",
             "support_subscription",
             "projects",
-            "podcast_episodes",
             "jobs",
             "job_thank_you",
             "post_job",
@@ -59,10 +58,6 @@ sitemaps = {
             "queryset": Job.objects.filter(approved=True),
             "date_field": "created_datetime",
         },
-        priority=0.8,
-    ),
-    "podcast": GenericSitemap(
-        {"queryset": Episode.objects.all(), "date_field": "created_datetime"},
         priority=0.8,
     ),
 }

@@ -7,7 +7,7 @@ from django.urls import reverse, reverse_lazy
 from django.views.decorators.csrf import csrf_exempt
 from django.views.generic import CreateView, DetailView, ListView, TemplateView
 
-from newsletter.views import NewsletterSignupForm
+# from newsletter.views import NewsletterSignupForm
 
 from .forms import PostJob
 from .models import Job
@@ -20,7 +20,7 @@ class JobListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["newsletter_form"] = NewsletterSignupForm
+        # context["newsletter_form"] = NewsletterSignupForm
 
         return context
 
@@ -31,7 +31,7 @@ class JobDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["newsletter_form"] = NewsletterSignupForm
+        # context["newsletter_form"] = NewsletterSignupForm
 
         return context
 

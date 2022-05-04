@@ -3,7 +3,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse, reverse_lazy
 from django.views.generic import CreateView, DetailView, ListView, UpdateView
 
-from newsletter.views import NewsletterSignupForm
+# from newsletter.views import NewsletterSignupForm
 
 from .forms import AddComment, AddProject, ProjectUpdateViewForm
 from .models import Comment, Project
@@ -16,7 +16,7 @@ class ProjectListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["newsletter_form"] = NewsletterSignupForm
+        # context["newsletter_form"] = NewsletterSignupForm
 
         return context
 
@@ -27,7 +27,7 @@ class ProjectDetailView(DetailView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["newsletter_form"] = NewsletterSignupForm
+        # context["newsletter_form"] = NewsletterSignupForm
         context["comment_form"] = AddComment
 
         return context

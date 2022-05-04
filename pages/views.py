@@ -11,8 +11,7 @@ from django.views.generic import (
 )
 
 from jobs.models import Job
-from newsletter.views import NewsletterSignupForm
-from podcast.models import Episode
+# from newsletter.views import NewsletterSignupForm
 from projects.models import Project
 
 from .forms import AddNftRequest, ConfirmEmail
@@ -24,9 +23,8 @@ class HomeView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["newsletter_form"] = NewsletterSignupForm
+        # context["newsletter_form"] = NewsletterSignupForm
         context["projects"] = Project.objects.filter(published=True)[:6]
-        context["podcast_episodes"] = Episode.objects.all()[:3]
         context["jobs"] = Job.objects.filter(approved=True).order_by(
             "-created_datetime"
         )[:6]

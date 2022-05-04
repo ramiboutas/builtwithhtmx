@@ -3,7 +3,7 @@ from django.contrib.messages.views import SuccessMessageMixin
 from django.urls import reverse, reverse_lazy
 from django.views.generic import DetailView, ListView, UpdateView
 
-from newsletter.views import NewsletterSignupForm
+# from newsletter.views import NewsletterSignupForm
 
 from .forms import ClaimAccountForm, MakerUpdateViewForm
 from .models import Maker
@@ -16,7 +16,7 @@ class MakerListView(ListView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["newsletter_form"] = NewsletterSignupForm
+        # context["newsletter_form"] = NewsletterSignupForm
 
         return context
 

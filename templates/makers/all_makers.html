@@ -24,7 +24,7 @@
                 Subscribe to know about the coolest Django makers out there.
             </p>
             <form class="flex flex-row items-center"
-                  action="{% url 'newsletter_home' %}"
+                  action="#"
                   method="post"
                   enctype="multipart/form-data">
                 {% csrf_token %} {{ newsletter_form.non_field_errors }}
