@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "jobs.apps.JobsConfig",
     "makers.apps.MakersConfig",
     "blog.apps.BlogConfig",
-    "users.apps.UsersConfig",
+    # "users.apps.UsersConfig",
     "youtube.apps.YoutubeConfig",
 
     # third-party apps
@@ -182,7 +182,7 @@ SERVER_EMAIL = "error@builtwithhtmx.com"
 
 # auth user
 
-AUTH_USER_MODEL = "users.CustomUser"
+# AUTH_USER_MODEL = "users.CustomUser"
 
 # django-allauth
 # From django for professional book
